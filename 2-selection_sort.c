@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include "sort.h"
 /**
+ *
+ *
+ *
+ */
+void swap(int *a, int *b)
+{
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+/**
  * selection_sort - function sorts array of integer using selection sort
  *
  * @array: Pointer to the array of integer
@@ -10,28 +23,20 @@
 void selection_sort(int *array, size_t size)
 {
 	size_t i;
-	size_t index;
-	int temp;
-	int swap, flag = 0;
+	size_t j;
+	int *min;
 
 	if (array == NULL)
 		return;
-	for (i = 0; i < size; i++)
+	for (i = 0; i < size - 1; i++)
 	{
-		temp = i;
-		flag = 0;
-		for (index = i + 1; index < size; index++)
+		min = array + i;
+		for (j = i + 1; j < size; j++)
+			min = (array[j] < *min) ? (array + j) : min;
+		if ((array + i) != min)
 		{
-			if (array[temp] > array[index])
-			{
-				temp = index;
-				flag += 1;
-			}
-		}
-		swap = array[i];
-		array[i] = array[temp];
-		array[temp] = swap;
-		if (flag != 0)
+			swap(array + i, min);
 			print_array(array, size);
+		}
 	}
 }
