@@ -16,6 +16,6 @@ int main(void)
 	printf("\n");
 	selection_sort(array, n);
 	printf("\n");
-	selection_sort(array, n);
+	print_array(array, n);
 	return (0);
 }
