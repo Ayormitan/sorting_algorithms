@@ -31,7 +31,7 @@ void selection_sort(int *array, size_t size)
 			array[i] = array[min];
 			array[min] = temp;
 			for (k = 0; k < size; ++k)
-			i{
+			{
 				if (k < size - 1)
 				{
 					printf("%d, ", array[k]);
